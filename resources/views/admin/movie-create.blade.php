@@ -37,6 +37,10 @@
                         <input type="text" class="form-control" id="trailer" name="trailer" placeholder="Video url" value="{{ old('trailer') }}">
                     </div>
                     <div class="form-group">
+                        <label for="trailer">Movie</label>
+                        <input type="text" class="form-control" id="movie" name="movie" placeholder="Video url" value="{{ old('movie') }}">
+                    </div>
+                    <div class="form-group">
                         <label for="duration">Duration</label>
                         <input type="text" class="form-control" id="duration" name="duration" placeholder="1h 39m" value="{{ old('duration') }}">
                     </div>
@@ -76,10 +80,8 @@
                     <div class="form-group">
                         <label>Featured</label>
                         <select class="custom-select" name="featured">
-                            <option value="0" {{ old("featured" === "0" ? "selected" : "") }}>No</option>
-                            <option value="1" {{ old("featured" === "1" ? "selected" : "") }}>Yes</option>
-{{--                            <option value="0">No</option>--}}
-{{--                            <option value="1" selected>Yes</option>--}}
+                            <option value="0" @if (old('featured') == "0") {{ 'selected' }} @endif>No</option>
+                            <option value="1" @if (old('featured') == "1") {{ 'selected' }} @endif>Yes</option>
                         </select>
                     </div>
                 </div>
