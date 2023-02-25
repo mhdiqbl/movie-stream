@@ -25,7 +25,7 @@ class MovieRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
-            'email_thumbnail' => 'required|image|mimes:jpeg,jpg,png',
+            'small_thumbnail' => 'required|image|mimes:jpeg,jpg,png',
             'large_thumbnail' => 'required|image|mimes:jpeg,jpg,png',
             'trailer' => 'required|url',
             'movie' => 'required|url',
