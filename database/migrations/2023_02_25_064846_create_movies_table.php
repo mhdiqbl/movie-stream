@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('categories');
             $table->string('small_thumbnail');
             $table->string('large_thumbnail');
-            $table->date('realese_date');
+            $table->date('release_date');
             $table->text('about');
             $table->string('short_about');
             $table->string('duration');
