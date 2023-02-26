@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\MovieController;
 use App\Http\Controllers\Admin\TransactionController;
+use App\Http\Controllers\Admin\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\Admin\TransactionController;
 //    return view('welcome');
 //});
 
+Route::get('/admin/login', [LoginController::class, 'index'])->name('admin-login');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::view('/','admin.dashboard')->name('admin-dashboard');
