@@ -16,9 +16,9 @@ use App\Http\Controllers\Admin\LoginController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('/', function () {
+    return view('index');
+});
 
 Route::get('/admin/login', [LoginController::class, 'index'])->name('admin-login');
 Route::post('/admin/login', [LoginController::class, 'authenticate'])->name('admin-auth');
@@ -37,4 +37,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
         Route::put('/update/{id}', [MovieController::class, 'update'])->name('admin-movie-update');
         Route::delete('/destroy/{id}', [MovieController::class, 'destroy'])->name('admin-movie-destroy');
     });
+
+//    Route::view('/', 'index');
 });
