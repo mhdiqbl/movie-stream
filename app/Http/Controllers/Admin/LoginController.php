@@ -29,4 +29,15 @@ class LoginController extends Controller
             'error' => 'Your credential is invalid'
         ])->withInput();
     }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->route('admin-login');
+    }
 }

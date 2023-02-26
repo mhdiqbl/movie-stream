@@ -27,6 +27,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin.auth']], function () 
     Route::view('/','admin.dashboard')->name('admin-dashboard');
     Route::get('/transaction', [TransactionController::class, 'index'])->name('admin-transaction');
 
+    Route::get('/logout', [LoginController::class, 'logout'])->name('admin-logout');
+
     Route::group(['prefix' => 'movie'], function (){
         Route::get('/', [MovieController::class, 'index'])->name('admin-movie');
         Route::get('/create', [MovieController::class, 'create'])->name('admin-movie-create');
