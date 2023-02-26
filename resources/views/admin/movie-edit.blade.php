@@ -1,6 +1,6 @@
 @extends('admin.layouts.base')
 
-@section('title', 'Add Movie')
+@section('title', 'Edit Movie')
 
 @section('content')
 <div class="row">
@@ -21,28 +21,29 @@
 
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Create Movie</h3>
+                <h3 class="card-title">Edit Movie</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form enctype="multipart/form-data" method="POST" action="{{ route('admin-movie-store') }}">
+            <form enctype="multipart/form-data" method="POST" action="{{ route('admin-movie-update', $movie->id) }}">
                 @csrf
+                @method('PUT')
                 <div class="card-body">
                     <div class="form-group">
                         <label for="title">Title</label>
-                        <input type="text" class="form-control" id="title" name="title" placeholder="e.g Guardian of The Galaxy" value="{{ old('title') }}">
+                        <input type="text" class="form-control" id="title" name="title" placeholder="e.g Guardian of The Galaxy" value="{{ $movie->title }}">
                     </div>
                     <div class="form-group">
                         <label for="trailer">Trailer</label>
-                        <input type="text" class="form-control" id="trailer" name="trailer" placeholder="Video url" value="{{ old('trailer') }}">
+                        <input type="text" class="form-control" id="trailer" name="trailer" placeholder="Video url" value="{{ $movie->trailer }}">
                     </div>
                     <div class="form-group">
                         <label for="trailer">Movie</label>
-                        <input type="text" class="form-control" id="movie" name="movie" placeholder="Video url" value="{{ old('movie') }}">
+                        <input type="text" class="form-control" id="movie" name="movie" placeholder="Video url" value="{{ $movie->movie }}">
                     </div>
                     <div class="form-group">
                         <label for="duration">Duration</label>
-                        <input type="text" class="form-control" id="duration" name="duration" placeholder="1h 39m" value="{{ old('duration') }}">
+                        <input type="text" class="form-control" id="duration" name="duration" placeholder="1h 39m" value="{{ $movie->duration }}">
                     </div>
                     <div class="form-group">
                         <label>Date:</label>
@@ -55,11 +56,11 @@
                     </div>
                     <div class="form-group">
                         <label for="short-about">Casts</label>
-                        <input type="text" class="form-control" value="{{ old('casts') }}" id="short-about" name="casts" placeholder="Jackie Chan">
+                        <input type="text" class="form-control" value="{{ $movie->casts }}" id="short-about" name="casts" placeholder="Jackie Chan">
                     </div>
                     <div class="form-group">
                         <label for="short-about">Categories</label>
-                        <input type="text" class="form-control" id="short-about" name="categories" value="{{ old('categories') }}" placeholder="Action, Fantasy">
+                        <input type="text" class="form-control" id="short-about" name="categories" value="{{ $movie->categories }}" placeholder="Action, Fantasy">
                     </div>
                     <div class="form-group">
                         <label for="small-thumbnail">Small Thumbnail</label>
@@ -71,17 +72,17 @@
                     </div>
                     <div class="form-group">
                         <label for="short-about">Short About</label>
-                        <input type="text" class="form-control" id="short-about" name="short_about" value="{{ old('short_about') }}" placeholder="Awesome Movie">
+                        <input type="text" class="form-control" id="short-about" name="short_about" value="{{ $movie->short_about }}" placeholder="Awesome Movie">
                     </div>
                     <div class="form-group">
                         <label for="short-about">About</label>
-                        <input type="text" class="form-control" id="about" name="about" placeholder="Awesome Movie" value="{{ old('about') }}">
+                        <input type="text" class="form-control" id="about" name="about" placeholder="Awesome Movie" value="{{ $movie->about }}">
                     </div>
                     <div class="form-group">
                         <label>Featured</label>
                         <select class="custom-select" name="featured">
-                            <option value="0" {{ (old('featured') == "0") ? 'selected' : '' }}>No</option>
-                            <option value="1" {{ (old('featured') == "1") ? 'selected' : '' }}>Yes</option>
+                            <option value="0" {{ $movie->featured == "0" ? 'selected' : '' }}>No</option>
+                            <option value="1" {{ $movie->featured == "1" ? 'selected' : '' }}>Yes</option>
                         </select>
                     </div>
                 </div>
