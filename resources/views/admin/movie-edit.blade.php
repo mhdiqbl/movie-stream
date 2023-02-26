@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label>Date:</label>
                         <div class="input-group date" id="release-date" data-target-input="nearest">
-                            <input type="text" name="release_date" value="{{ old('release_date') }}" class="form-control datetimepicker-input" data-target="#release-date"/>
+                            <input type="text" name="release_date" value="{{ $movie->release_date }}" class="form-control datetimepicker-input" data-target="#release-date"/>
                             <div class="input-group-append" data-target="#release-date" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
