@@ -8,6 +8,7 @@ use App\Http\Controllers\Member\RegisterController;
 use App\Http\Controllers\Member\LoginController as MemberLoginController;
 use App\Http\Controllers\Member\DashboardController;
 use App\Http\Controllers\Member\MovieController as MemberMovieController;
+use App\Http\Controllers\Member\PricingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,8 @@ Route::get('/', function () {
 
 Route::get('/register', [RegisterController::class, 'index'])->name('member-register');
 Route::post('/register', [RegisterController::class, 'store'])->name('member-register-store');
+
+Route::get('/pricing', [PricingController::class, 'index'])->name('pricing');
 
 Route::get('/login', [MemberLoginController::class, 'index'])->name('member-login');
 Route::post('/login', [MemberLoginController::class, 'auth'])->name('member-login-auth');
