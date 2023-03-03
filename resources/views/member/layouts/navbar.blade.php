@@ -6,7 +6,7 @@
         <p class="mb-0 text-stream-gray text-base">@yield('title-description')</p>
     </div>
     <div class="flex items-center gap-[26px]">
-        <span class="text-white text-base">Welcome, Miranda Nur</span>
+        <span class="text-white text-base">Welcome, {{ Auth::user()->name }}</span>
         <!-- user avatar -->
         <div class="collapsible-dropdown flex flex-col gap-2 relative">
             <a href="#!"
