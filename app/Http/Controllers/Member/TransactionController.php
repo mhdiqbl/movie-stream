@@ -50,8 +50,5 @@ class TransactionController extends Controller
         $midtransRedirectUrl = $createMidtransTransaction->redirect_url;
 
         return redirect($midtransRedirectUrl);
-
-
-        $snapToken = \Midtrans\Snap::getSnapToken($params);
     }
 }
