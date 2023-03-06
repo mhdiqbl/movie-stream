@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Transaction;
 use App\Models\UserPremium;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class WebhookController extends Controller
 {
@@ -50,11 +51,25 @@ class WebhookController extends Controller
             ->first();
 
         if ($status == 'success') {
-            UserPremium::create([
-                'package_id' => $transactionStatus->package->id,
-                'user_id' => $transaction->user_id,
-                'end_of_subscription' => now()->addDays($transaction->package->max_days),
-            ]);
+            // Renewal subcription
+            $userPremium = UserPremium::where('user_id', $transaction->user_id)->first();
+            if ($userPremium){
+                $endOfSubscription = $userPremium->end_of_subscription;
+                $date = Carbon::createFromFormat('Y-m-d', $endOfSubscription);
+                $newOfSubscription = $date->addDays($transaction->package->max_days)->format('Y-m-d');
+
+                $userPremium->update([
+                    'package_id' => $transaction->package_id,
+                    'end_of_subscription' => $newOfSubscription,
+                ]);
+            }else{
+                // Newal subcription
+                UserPremium::create([
+                    'package_id' => $transactionStatus->package->id,
+                    'user_id' => $transaction->user_id,
+                    'end_of_subscription' => now()->addDays($transaction->package->max_days),
+                ]);
+            }
         }
 
         $transaction->update(['status' => $status]);
