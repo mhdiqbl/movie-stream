@@ -11,7 +11,7 @@
     <div class="flex flex-col gap-10">
         <!-- Thumbnail -->
         <div class="w-full relative overflow-hidden group">
-            <img src="{{ asset('stream/assets/images/featured-2.png')}}" class="object-cover rounded-[30px]" alt="">
+            <img src="{{ asset('storage/thumbnail/'. $movie->large_thumbnail)}}" class="object-cover rounded-[30px]" alt="">
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
                 <img src="{{ asset('stream/assets/images/ic_play.svg')}}" width="80" alt="">
             </div>

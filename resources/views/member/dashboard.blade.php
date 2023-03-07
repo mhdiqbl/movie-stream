@@ -10,7 +10,7 @@
         <div class="grid grid-cols-2 gap-5 xl:gap-12">
             @foreach($movies as $movie)
             <div class="col-span-1 relative overflow-hidden group">
-                <img src="{{ asset('storage/thumbnail/'.$movie->large_thumbnail) }}" class="object-cover rounded-[30px]" alt="">
+                <img src="{{ asset('storage/thumbnail/'.$movie->small_thumbnail) }}" class="object-cover rounded-[30px]" alt="">
                 <div
                     class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black rounded-bl-[28px] rounded-br-[28px] z-10 translate-y-0 group-hover:translate-y-[300px] transition ease-in-out duration-500 group-hover:bg-transparent">
                     <div class="px-7 pb-7">
