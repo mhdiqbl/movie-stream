@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('webhook', [WebhookController::class, 'handler']);
+Route::view('/payment-finish', 'member.payment-finish')->name('member-payment-finish');

@@ -51,6 +51,8 @@ Route::post('/register', [RegisterController::class, 'store'])->name('member-reg
 
 Route::get('/pricing', [PricingController::class, 'index'])->name('pricing');
 
+Route::view('/payment-finish', 'member.payment-finish')->name('member-payment-finish');
+
 Route::get('/login', [MemberLoginController::class, 'index'])->name('member-login');
 Route::post('/login', [MemberLoginController::class, 'auth'])->name('member-login-auth');
 
