@@ -29,7 +29,7 @@ class RegisterController extends Controller
                 ->withInput();
         }
 
-        $data['role'] = 'member';
+        $data['roles'] = 'member';
 
         $data['password'] = Hash::make($request->password);
 
