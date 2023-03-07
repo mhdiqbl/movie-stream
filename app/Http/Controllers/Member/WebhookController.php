@@ -12,7 +12,7 @@ class WebhookController extends Controller
 {
     public function handler(Request $request)
     {
-        \Midtrans\Config::$isProduction = (bool)env('MIDTRANS_IS_PRODUCTION');
+        \Midtrans\Config::$isProduction = (bool) env('MIDTRANS_IS_PRODUCTION');
         \Midtrans\Config::$serverKey = env('MIDTRANS_SERVER_KEYS');
         $notif = new \Midtrans\Notification();
 
@@ -33,9 +33,9 @@ class WebhookController extends Controller
                 $status = 'success';
             }
         } else if ($transactionStatus == 'settlement') {
-            // TODO set transaction status on your database to 'success'
+            // TODO set transaction status on your datab`ase to 'success'
             // and response with 200 OK
-            $status = 'challenge';
+            $status = 'success';
         } else if ($transactionStatus == 'cancel' || $transactionStatus == 'deny' || $transactionStatus == 'expire') {
             // TODO set transaction status on your database to 'failure'
             // and response with 200 OK
@@ -65,13 +65,12 @@ class WebhookController extends Controller
             }else{
                 // Newal subcription
                 UserPremium::create([
-                    'package_id' => $transactionStatus->package->id,
+                    'packages_id' => $transaction->package->id,
                     'user_id' => $transaction->user_id,
                     'end_of_subscription' => now()->addDays($transaction->package->max_days),
                 ]);
             }
         }
-
         $transaction->update(['status' => $status]);
     }
 }

@@ -16,6 +16,7 @@ class TransactionController extends Controller
         $package = Package::find($request->package_id);
 
         $customer = auth()->user();
+//        return $customer;
 
         $transaction = Transaction::create([
             'package_id' => $package->id,
