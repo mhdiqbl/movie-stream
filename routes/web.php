@@ -59,6 +59,7 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth']], function(){
    Route::get('/logout', [MemberLoginController::class, 'logout'])->name('member-logout');
 
    Route::post('/transaction', [MemberTransactionController::class, 'store'])->name('member-transaction-store');
+   Route::delete('/transaction/{id}', [UserPremiumController::class, 'destroy'])->name('member-transaction-destroy');
 
    Route::get('/subscription', [UserPremiumController::class, 'index'])->name('member-user-premium-index');
 

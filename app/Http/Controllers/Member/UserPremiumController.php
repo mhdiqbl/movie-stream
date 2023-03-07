@@ -18,8 +18,13 @@ class UserPremiumController extends Controller
             return redirect()->route('pricing');
         }
 
-//        dd($userPremium);
-
         return view('member.subscription', compact('userPremium'));
+    }
+
+    public function destroy($id)
+    {
+        UserPremium::destroy($id);
+
+        return redirect()->route('member-dashboard');
     }
 }
