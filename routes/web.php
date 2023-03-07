@@ -64,4 +64,5 @@ Route::group(['prefix' => 'member', 'middleware' => ['auth']], function(){
    Route::get('/subscription', [UserPremiumController::class, 'index'])->name('member-user-premium-index');
 
    Route::get('movie/{id}', [MemberMovieController::class, 'show'])->name('member-movie-detail');
+   Route::get('movie/{id}/watch', [MemberMovieController::class, 'watch'])->name('member-movie-watch');
 });
