@@ -65,7 +65,7 @@ class WebhookController extends Controller
             }else{
                 // Newal subcription
                 UserPremium::create([
-                    'packages_id' => $transaction->package->id,
+                    'package_id' => $transaction->package->id,
                     'user_id' => $transaction->user_id,
                     'end_of_subscription' => now()->addDays($transaction->package->max_days),
                 ]);
