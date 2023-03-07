@@ -12,8 +12,13 @@ class UserPremium extends Model
     protected $table = 'user_premiums';
 
     protected $fillable = [
-        'packages_id',
+        'package_id',
         'user_id',
         'end_of_subscription',
     ];
+
+    public function package()
+    {
+        return $this->belongsTo(Package::class);
+    }
 }
