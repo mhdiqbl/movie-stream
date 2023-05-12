@@ -78,7 +78,7 @@ class MovieController extends Controller
             $data['small_thumbnail'] = $originalSmallThumbnailName;
 
             //delete old image
-            Storage::delete('public/thumbnail/'.$movie->samll_thumbnail);
+            Storage::delete('public/thumbnail/'.$movie->small_thumbnail);
         }
 
         if ($request->large_thumbnail){
